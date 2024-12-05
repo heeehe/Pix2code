@@ -1,0 +1,38 @@
+digraph "Pix2Code Implementation UML" {
+	node [color=black fontname="Arial Bold" fontsize=14]
+	"50989a97c6074581b34062c2015389d9" -> f6399e3c100b47199a0fe6a4d2a218ec [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	f6399e3c100b47199a0fe6a4d2a218ec -> d6b429970b364d0daa5599ee1ad6d4f8 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	d6b429970b364d0daa5599ee1ad6d4f8 -> "8976f7eca959442b8686e51135d2be5a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph "cluster_Flask Interface" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Flask Interface" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"50989a97c6074581b34062c2015389d9" [label=User height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/onprem/client\user.png" shape=none]
+		f6399e3c100b47199a0fe6a4d2a218ec [label="Image Upload" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/framework\flask.png" shape=none]
+		d6b429970b364d0daa5599ee1ad6d4f8 [label="Process Image" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/framework\flask.png" shape=none]
+		"8976f7eca959442b8686e51135d2be5a" [label="Code Output" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/framework\flask.png" shape=none]
+	}
+	"2d0f57ab6bb442fda72072ad0fcb0fcc" -> "6a637552b2c84688b7f7f4273c373c84" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6a637552b2c84688b7f7f4273c373c84" -> f6d12d4c3684488cb7d86cd73e10942d [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph "cluster_Pix2Code Model" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Pix2Code Model" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"2d0f57ab6bb442fda72072ad0fcb0fcc" [label="Image Encoder (CNN)" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/language\python.png" shape=none]
+		"6a637552b2c84688b7f7f4273c373c84" [label="Context Encoder (RNN)" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/language\python.png" shape=none]
+		f6d12d4c3684488cb7d86cd73e10942d [label="Decoder (RNN)" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/language\python.png" shape=none]
+	}
+	"87d12cb3ffe240548d0a21d1ecb9535e" -> "4e1d9d4efb964f99b7e267248a435d13" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"4e1d9d4efb964f99b7e267248a435d13" -> "2d0f57ab6bb442fda72072ad0fcb0fcc" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph "cluster_Data Preprocessing" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Data Preprocessing" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"87d12cb3ffe240548d0a21d1ecb9535e" [label=Dataset height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/generic/database\sql.png" shape=none]
+		"4e1d9d4efb964f99b7e267248a435d13" [label="Vocabulary Class" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/language\python.png" shape=none]
+	}
+	f6d12d4c3684488cb7d86cd73e10942d -> c5d07e9d29d84c55a5b6a0b299c6c068 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c5d07e9d29d84c55a5b6a0b299c6c068 -> f007e40231cf469faff9e8825cc7bd47 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	f007e40231cf469faff9e8825cc7bd47 -> "2d0f57ab6bb442fda72072ad0fcb0fcc" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph cluster_Training {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label=Training labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		c5d07e9d29d84c55a5b6a0b299c6c068 [label="Cross-Entropy Loss" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/language\python.png" shape=none]
+		f007e40231cf469faff9e8825cc7bd47 [label="SGD Optimizer" height=1.9 image="C:\Users\K TEJASWI\miniconda3\Lib\site-packages\resources/programming/language\python.png" shape=none]
+	}
+	f6399e3c100b47199a0fe6a4d2a218ec -> "2d0f57ab6bb442fda72072ad0fcb0fcc" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	f6d12d4c3684488cb7d86cd73e10942d -> "8976f7eca959442b8686e51135d2be5a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

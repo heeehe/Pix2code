@@ -3,16 +3,26 @@ from diagrams.onprem.client import User
 from diagrams.programming.framework import Flask
 from diagrams.programming.language import Python
 from diagrams.generic.database import SQL
+from graphviz import Digraph
 
-with Diagram("Pix2Code Implementation UML", filename="pix2code_detailed", show=False):
+
+class CustomDiagram(Diagram):
+    """Custom Diagram class to adjust text properties and other styling."""
+    def __init__(self, name, **kwargs):
+        super().__init__(name, **kwargs)
+        self.dot = Digraph(self.name)
+        self.dot.attr('node', fontname="Arial Bold", fontsize="14", color="black")
+
+with CustomDiagram("Pix2Code Implementation UML", filename="pix2code_styled", show=False):
 
     # User Interface Cluster
     with Cluster("Flask Interface"):
         user = User("User")
         image_upload = Flask("Image Upload")
+        process_image = Flask("Process Image")
         code_output = Flask("Code Output")
         
-        user >> image_upload >> code_output
+        user >> image_upload >> process_image >> code_output
 
     # Pix2Code Model Cluster
     with Cluster("Pix2Code Model"):
